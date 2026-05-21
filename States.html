@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>State Action Lookup</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 40px;
+        transition: background-color 0.3s ease;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 18px;
+        width: 300px;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>State Action Lookup</h2>
+
+<input type="text" id="stateInput" placeholder="Type state name or abbreviation..." oninput="lookupState()" />
+
+<div id="result"></div>
+
+<script>
+const states = [
+    {abbr:"AL", name:"Alabama", action:"All"},
+    {abbr:"AK", name:"Alaska", action:"All"},
+    {abbr:"AZ", name:"Arizona", action:"All"},
+    {abbr:"AR", name:"Arkansas", action:"All"},
+    {abbr:"CA", name:"California", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"CO", name:"Colorado", action:"All"},
+    {abbr:"CT", name:"Connecticut", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"DC", name:"District of Columbia", action:"All"},
+    {abbr:"DE", name:"Deleware", action:"All"},
+    {abbr:"FL", name:"Florida", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"GA", name:"Georgia", action:"All"},
+    {abbr:"HI", name:"Hawaii", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"ID", name:"Idaho", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"IL", name:"Illinois", action:"All"},
+    {abbr:"IN", name:"Indiana", action:"All"},
+    {abbr:"IA", name:"Iowa", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"KS", name:"Kansas", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"KY", name:"Kentucky", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"LA", name:"Louisiana", action:"All"},
+    {abbr:"ME", name:"Maine", action:"All"},
+    {abbr:"MD", name:"Maryland", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"MA", name:"Massachusetts", action:"Payments & Billing ONLY"},
+    {abbr:"MI", name:"Michigan", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"MN", name:"Minnesota", action:"All"},
+    {abbr:"MS", name:"Mississippi", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"MO", name:"Missouri", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"MT", name:"Montana", action:"All"},
+    {abbr:"NE", name:"Nebraska", action:"All"},
+    {abbr:"NV", name:"Nevada", action:"All"},
+    {abbr:"NH", name:"New Hampshire", action:"All"},
+    {abbr:"NJ", name:"New Jersey", action:"No Move Ins or Copy Policy"},
+    {abbr:"NM", name:"New Mexico", action:"All"},
+    {abbr:"NY", name:"New York", action:"All"},
+    {abbr:"NC", name:"North Carolina", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"ND", name:"North Dakota", action:"All"},
+    {abbr:"OH", name:"Ohio", action:"All"},
+    {abbr:"OK", name:"Oklahoma", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"OR", name:"Oregon", action:"All"},
+    {abbr:"PA", name:"Pennsylvania", action:"No Move Ins or Copy Policy"},
+    {abbr:"RI", name:"Rhode Island", action:"All"},
+    {abbr:"SC", name:"South Carolina", action:"All"},
+    {abbr:"SD", name:"South Dakota", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"TN", name:"Tennessee", action:"All"},
+    {abbr:"TX", name:"Texas", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"UT", name:"Utah", action:"All"},
+    {abbr:"VA", name:"Virginia", action:"All"},
+    {abbr:"VT", name:"Vermont", action:"All"},
+    {abbr:"WA", name:"Washington", action:"All"},
+    {abbr:"WI", name:"Wisconsin", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"WV", name:"West Virginia", action:"Billing, Paments, POC, Lienholder"},
+    {abbr:"WY", name:"Wyoming", action:"All"}
+];
+
+function lookupState() {
+    const input = document.getElementById("stateInput").value.toLowerCase();
+    const resultDiv = document.getElementById("result");
+
+    let match = states.find(s =>
+        s.abbr.toLowerCase().startsWith(input) ||
+        s.name.toLowerCase().startsWith(input)
+    );
+
+    if (match) {
+        resultDiv.innerHTML = `${match.name} (${match.abbr})<br>Action: ${match.action}`;
+
+        // Change background color
+        switch (match.action) {
+            case "All":
+                document.body.style.backgroundColor = "lightgreen";
+                break;
+            case "Billing, Paments, POC, Lienholder":
+                document.body.style.backgroundColor = "yellow";
+                break;
+            case "Payments & Billing ONLY":
+                document.body.style.backgroundColor = "red";
+                break;
+            case "No Move Ins or Copy Policy":
+                document.body.style.backgroundColor = "orange";
+                break;
+            default:
+                document.body.style.backgroundColor = "white";
+        }
+    } else {
+        resultDiv.innerHTML = "No match found";
+        document.body.style.backgroundColor = "white";
+    }
+}
+</script>
+
+</body>
+</html>
