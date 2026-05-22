@@ -102,8 +102,16 @@ function lookupState() {
         s.name.toLowerCase().startsWith(input)
     );
 
-    if (match) {
-        resultDiv.innerHTML = `${match.name} (${match.abbr})<br>Action: ${match.action}<br><br><br><br>Underwriting(Cancellation requests, Forms, Proof): ${match.underwriting}<br>DP1 Reprints: ${match.dp1_reprints}`;
+    
+if (match) {
+    resultDiv.innerHTML = `${match.name} (${match.abbr})<br>
+    Action: ${match.action}<br><br><br><br>
+    <span title="Cancellation Requests, Forms, Proof, Documents Requested by Underwriting">
+        Underwriting
+    </span>: ${match.underwriting}<br>
+    DP1 Reprints: ${match.dp1_reprints}`;
+}
+
 
         // Change background color
         switch (match.action) {
