@@ -32,7 +32,7 @@
 
 <body>
 
-<h2>State Action Lookup</h2>
+<h2>State Action Lookup!</h2>
 
 <input type="text" id="stateInput" placeholder="Type state name or abbreviation..." oninput="lookupState()" />
 
@@ -103,13 +103,15 @@ function lookupState() {
     );
 
     
+
 if (match) {
     resultDiv.innerHTML = `${match.name} (${match.abbr})<br>
     Action: ${match.action}<br><br><br><br>
-    <span title="Cancellation Requests, Forms, Proof, Documents Requested by Underwriting">
+    <span class="tooltip" title="Cancellation Requests, Forms, Proof, Documents Requested by Underwriting">
         Underwriting
     </span>: ${match.underwriting}<br>
     DP1 Reprints: ${match.dp1_reprints}`;
+
 
 
 
