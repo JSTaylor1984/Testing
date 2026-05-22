@@ -98,7 +98,7 @@ function lookupState() {
     );
 
     if (match) {
-        resultDiv.innerHTML = `${match.name} (${match.abbr})<br>Action: ${match.action}`;
+        resultDiv.innerHTML = `${match.name} (${match.abbr})<br>Action: ${match.action}<br>DP1 Reprints: ${match.dp1_reprints}`;
 
         // Change background color
         switch (match.action) {
