@@ -114,12 +114,12 @@ function lookupState() {
 
 if (match) {
     resultDiv.innerHTML = `${match.name} (${match.abbr})<br>
-    Action: ${match.action}<br><br>
+    Actions Permitted: ${match.action}<br><br>
     <span class="tooltip" title="Cancellation Requests, Forms, Proof, Documents Requested by Underwriting">
         Underwriting
     </span>: ${match.underwriting}<br>
     DP1 Reprints: ${match.dp1_reprints}<br>
-    Cancellation Requests: ${match.cancellation}
+    Cancellation Requests: ${match.cancellation}<br>
     For Moves to this state: ${match.move}`;
 
 
