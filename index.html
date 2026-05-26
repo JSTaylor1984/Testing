@@ -7,32 +7,63 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 40px;
-        transition: background-color 0.3s ease;
         background-color: #0018F9;
-        color: black; /* optional: improves readability on blue */
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
+        background-color: white;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        width: 450px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
     }
 
     input {
-        padding: 10px;
-        font-size: 18px;
-        width: 300px;
-        background-color: #BEBEBE;
+        padding: 12px;
+        font-size: 16px;
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        outline: none;
+        transition: border 0.2s ease;
+    }
+
+    input:focus {
+        border-color: #0018F9;
     }
 
     #result {
-        margin-top: 20px;
-        font-size: 20px;
-        font-weight: bold;
+        margin-top: 10px;
+        font-size: 15px;
+        text-align: left;
+        line-height: 1.6;
+    }
 
-    
+    .label {
+        font-weight: bold;
+    }
+
     .tooltip {
-    text-decoration: underline dotted;
-    cursor: help;
-    color: black; /* gold highlight */
-}
-    
+        text-decoration: underline dotted;
+        cursor: help;
+    }
+
+    .state-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
     }
 </style>
 
@@ -40,15 +71,19 @@
 
 <body>
 
-<h2>State Action Lookup</h2>
+<div class="card">
+    <h2>State Action Lookup</h2>
 
-<input type="text" id="stateInput" placeholder="Type state name or abbreviation..." oninput="lookupState()" />
+    <input type="text" id="stateInput"
+        placeholder="Type state name or abbreviation..."
+        oninput="lookupState()" />
 
-<div id="result"></div>
+    <div id="result"></div>
+</div>
 
 <script>
 const states = [
-    {abbr:"AL", name:"Alabama", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required"},
+        {abbr:"AL", name:"Alabama", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required"},
     {abbr:"AK", name:"Alaska", action:"All",dp1_reprints:"R4ConfirmProc@geico.com", underwriting:"uw4@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required"},
     {abbr:"AZ", name:"Arizona", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required"},
     {abbr:"AR", name:"Arkansas", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required"},
@@ -110,41 +145,42 @@ function lookupState() {
         s.name.toLowerCase().startsWith(input)
     );
 
+    if (match) {
+        resultDiv.innerHTML = `
+            <div class="state-title">${match.name} (${match.abbr})</div>
 
+            <div><span class="label">Actions Permitted:</span> ${match.action}</div>
 
-if (match) {
-    resultDiv.innerHTML = `${match.name} (${match.abbr})<br>
-    Actions Permitted: ${match.action}<br><br>
-    <span class="tooltip" title="Cancellation Requests, Forms, Proof, Documents Requested by Underwriting">
-        Underwriting
-    </span>: ${match.underwriting}<br>
-    DP1 Reprints: ${match.dp1_reprints}<br>
-    Cancellation Requests: ${match.cancellation}<br>
-    For Moves to this state: ${match.move}`;
+            <div><span class="label tooltip"
+                title="Cancellation Requests, Forms, Proof, Documents Requested by Underwriting">
+                Underwriting:
+            </span> ${match.underwriting}</div>
 
+            <div><span class="label">DP1 Reprints:</span> ${match.dp1_reprints}</div>
+            <div><span class="label">Cancellation:</span> ${match.cancellation}</div>
+            <div><span class="label">Moves:</span> ${match.move}</div>
+        `;
 
-
-
-        // Change background color
+        // Background color logic
         switch (match.action) {
             case "All":
-                document.body.style.backgroundColor = "lightgreen";
+                document.body.style.backgroundColor = "#2ecc71";
                 break;
             case "Billing, Paments, POC, Lienholder":
-                document.body.style.backgroundColor = "yellow";
+                document.body.style.backgroundColor = "#f1c40f";
                 break;
             case "Payments & Billing ONLY":
-                document.body.style.backgroundColor = "red";
+                document.body.style.backgroundColor = "#e74c3c";
                 break;
             case "No Move Ins or Copy Policy":
-                document.body.style.backgroundColor = "orange";
+                document.body.style.backgroundColor = "#e67e22";
                 break;
             default:
-                document.body.style.backgroundColor = "blue";
+                document.body.style.backgroundColor = "#0018F9";
         }
     } else {
-        resultDiv.innerHTML = "No match found";
-        document.body.style.backgroundColor = "white";
+        resultDiv.innerHTML = "<div style='text-align:center;'>No match found</div>";
+        document.body.style.backgroundColor = "#0018F9";
     }
 }
 </script>
