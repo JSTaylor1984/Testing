@@ -140,10 +140,19 @@ function lookupState() {
     const input = document.getElementById("stateInput").value.toLowerCase();
     const resultDiv = document.getElementById("result");
 
-    let match = states.find(s =>
-        s.abbr.toLowerCase().startsWith(input) ||
-        s.name.toLowerCase().startsWith(input)
-    );
+
+let match;
+
+if (input.length === 2) {
+    // Exact abbreviation match only
+    match = states.find(s => s.abbr.toLowerCase() === input);
+} else if (input.length > 2) {
+    // Match state names starting with input
+    match = states.find(s => s.name.toLowerCase().startsWith(input));
+} else {
+    match = null; // Optional: avoid matching on 1 letter
+}
+
 
     if (match) {
         resultDiv.innerHTML = `
