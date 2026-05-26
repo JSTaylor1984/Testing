@@ -40,7 +40,7 @@
 
 <body>
 
-<h2>State Action Lookup</h2>
+<h2>State Action Lookup!!</h2>
 
 <input type="text" id="stateInput" placeholder="Type state name or abbreviation..." oninput="lookupState()" />
 
@@ -110,7 +110,7 @@ function lookupState() {
         s.name.toLowerCase().startsWith(input)
     );
 
-    
+
 
 if (match) {
     resultDiv.innerHTML = `${match.name} (${match.abbr})<br>
@@ -118,8 +118,8 @@ if (match) {
     <span class="tooltip" title="Cancellation Requests, Forms, Proof, Documents Requested by Underwriting">
         Underwriting
     </span>: ${match.underwriting}<br>
-    DP1 Reprints: ${match.dp1_reprints}
-    State Moves: ${match.move}
+    DP1 Reprints: ${match.dp1_reprints}<br>
+    For Moves to this state: ${match.move}`;
 
 
 
