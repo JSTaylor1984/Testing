@@ -93,7 +93,7 @@
     <div id="azClock">Loading Arizona Time...</div>
 
     <div class="card">
-        <h2>State Action Lookup!</h2>
+        <h2>State Action Lookup</h2>
 
         <input type="text" id="stateInput"
             placeholder="Type state name or abbreviation..."
@@ -125,36 +125,58 @@ updateArizonaClock();
 setInterval(updateArizonaClock, 1000);
 
 const states = [
-    {
-        abbr:"AZ",
-        name:"Arizona",
-        action:"All",
-        dp1_reprints:"R10ConfirmProc@geico.com",
-        underwriting:"uw10@geico.com",
-        move:"Please transfer to Sales",
-        cancellation:"No special handling required",
-        reissue:"You can reissue/restart for this state-- QC024"
-    },
-    {
-        abbr:"CA",
-        name:"California",
-        action:"Billing, Payments, POC, Lienholder",
-        dp1_reprints:"R4ConfirmProc@geico.com",
-        underwriting:"uw4@geico.com",
-        move:"Please transfer to Service",
-        cancellation:"No special handling required",
-        reissue:"Transfer to Reissue department-- QC024"
-    },
-    {
-        abbr:"NV",
-        name:"Nevada",
-        action:"All",
-        dp1_reprints:"R10ConfirmProc@geico.com",
-        underwriting:"uw10@geico.com",
-        move:"You can process moves to this state",
-        cancellation:"No special handling required",
-        reissue:"Transfer to Reissue department-- QC114"
-    }
+        {abbr:"AL", name:"Alabama", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"AK", name:"Alaska", action:"All",dp1_reprints:"R4ConfirmProc@geico.com", underwriting:"uw4@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"AZ", name:"Arizona", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"You can reissue/restart for this state-- QC024"},
+    {abbr:"AR", name:"Arkansas", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"CA", name:"California", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R4ConfirmProc@geico.com", underwriting:"uw4@geico.com",move:"Please transfer to Service",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"CO", name:"Colorado", action:"All",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"CT", name:"Connecticut", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"uwpr@geico.com", underwriting:"uw8@geico.com",move:"Please transfer to Service",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"DC", name:"District of Columbia", action:"All",dp1_reprints:"R1ConfirmProc@geico.com", underwriting:"uw1@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"DE", name:"Delaware", action:"All",dp1_reprints:"R1ConfirmProc@geico.com", underwriting:"uw1@geico.com",move:"Please transfer to Sales",cancellation:"See 'Cancellation Requests' article for special handling",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"FL", name:"Florida", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R6ConfirmProc@geico.com", underwriting:"uw6@geico.com",move:"Please transfer to Sales",cancellation:"See 'Cancellation Requests' article for special handling",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"GA", name:"Georgia", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"See 'Cancellation Requests' article for special handling",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"HI", name:"Hawaii", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R4ConfirmProc@geico.com", underwriting:"uw4@geico.com",move:"Please transfer to Service",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC212"},
+    {abbr:"ID", name:"Idaho", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"IL", name:"Illinois", action:"All", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"IN", name:"Indiana", action:"All", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"IA", name:"Iowa", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"KS", name:"Kansas", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"KY", name:"Kentucky", action:"Billing, Payments, POC, Lienholder", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"LA", name:"Louisiana", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"Requires written request",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"ME", name:"Maine", action:"All",dp1_reprints:"uwpr@geico.com", underwriting:"uw8@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"MD", name:"Maryland", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R1ConfirmProc@geico.com", underwriting:"uw1@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"MA", name:"Massachusetts", action:"Payments & Billing ONLY",dp1_reprints:"uwpr@geico.com", underwriting:"uw8@geico.com",move:"Please transfer to Service",cancellation:"Requires written request*",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"MI", name:"Michigan", action:"Billing, Payments, POC, Lienholder", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Service",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC011"},
+    {abbr:"MN", name:"Minnesota", action:"All", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"MS", name:"Mississippi", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"MO", name:"Missouri", action:"Billing, Payments, POC, Lienholder", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"MT", name:"Montana", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"NE", name:"Nebraska", action:"All",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"NV", name:"Nevada", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"You can process moves to this state",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"NH", name:"New Hampshire", action:"All",dp1_reprints:"uwpr@geico.com", underwriting:"uw8@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"NJ", name:"New Jersey", action:"No Move Ins or Copy Policy",dp1_reprints:"uwpr@geico.com", underwriting:"uw8@geico.com",move:"Please transfer to Service",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"NM", name:"New Mexico", action:"All",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"NY", name:"New York", action:"All",dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw2@geico.com",move:"You can process moves to this state",cancellation:"See 'Cancellation Requests' article for special handling",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"NC", name:"North Carolina", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"r7-exc-r7piuref@geico.com", underwriting:"uw7@geico.com",move:"Please transfer to Service",cancellation:"Requires written request*",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"ND", name:"North Dakota", action:"All",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"OH", name:"Ohio", action:"All", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"OK", name:"Oklahoma", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"OR", name:"Oregon", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"PA", name:"Pennsylvania", action:"No Move Ins or Copy Policy",dp1_reprints:"R1ConfirmProc@geico.com", underwriting:"uw1@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"RI", name:"Rhode Island", action:"All",dp1_reprints:"uwpr@geico.com", underwriting:"uw8@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"SC", name:"South Carolina", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"Requires written request if within first 60 days*",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"SD", name:"South Dakota", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"TN", name:"Tennessee", action:"All",dp1_reprints:"r7-exc-r7piuref@geico.com", underwriting:"uw7@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"TX", name:"Texas", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"UT", name:"Utah", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"VA", name:"Virginia", action:"All",dp1_reprints:"r7-exc-r7piuref@geico.com", underwriting:"uw7@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"VT", name:"Vermont", action:"All",dp1_reprints:"uwpr@geico.com", underwriting:"uw8@geico.com",move:"You can process moves to this state",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
+    {abbr:"WA", name:"Washington", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"You can process moves to this state",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"WI", name:"Wisconsin", action:"Billing, Payments, POC, Lienholder", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+    {abbr:"WV", name:"West Virginia", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R1ConfirmProc@geico.com", underwriting:"uw1@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"ES", name:"Elizabeth", action:"Elizabeth",dp1_reprints:"Elizabeth", underwriting:"Elizabeth",move:"Please transfer to Elizabeth",cancellation:"Only Elizabeth can cancel",reissue:"You cant reissue an Elizabeth"},
+    {abbr:"WY", name:"Wyoming", action:"All",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"}
 ];
 
 function lookupState() {
