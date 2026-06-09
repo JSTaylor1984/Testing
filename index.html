@@ -72,7 +72,7 @@
 <body>
 
 <div class="card">
-    <h2>State Action Lookup!</h2>
+    <h2>State Action Lookup</h2>
 
     <input type="text" id="stateInput"
         placeholder="Type state name or abbreviation..."
@@ -133,6 +133,7 @@ const states = [
     {abbr:"WA", name:"Washington", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"You can process moves to this state",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
     {abbr:"WI", name:"Wisconsin", action:"Billing, Payments, POC, Lienholder", dp1_reprints:"R2ConfirmProc@geico.com", underwriting:"uw9@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
     {abbr:"WV", name:"West Virginia", action:"Billing, Payments, POC, Lienholder",dp1_reprints:"R1ConfirmProc@geico.com", underwriting:"uw1@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
+    {abbr:"ES", name:"Elizabeth", action:"Elizabeth",dp1_reprints:"Elizabeth", underwriting:"Elizabeth",move:"Please transfer to Elizabeth",cancellation:"Only Elizabeth can cancel",reissue:"You cant reissue an Elizabeth"},
     {abbr:"WY", name:"Wyoming", action:"All",dp1_reprints:"R5ConfirmProc@geico.com", underwriting:"uw5@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"}
 ];
 
@@ -185,6 +186,9 @@ if (input.length === 2) {
             case "No Move Ins or Copy Policy":
                 document.body.style.backgroundColor = "#e67e22";
                 break;
+            case "Elizabeth":
+                document.body.style.backgroundColor = "#ffcc66";
+                break;                
             default:
                 document.body.style.backgroundColor = "#0018F9";
         }
