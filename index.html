@@ -125,7 +125,7 @@ updateArizonaClock();
 setInterval(updateArizonaClock, 1000);
 
 const states = [
-        {abbr:"AL", name:"Alabama", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024"},
+        {abbr:"AL", name:"Alabama", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC024",DDC:"50+"},
     {abbr:"AK", name:"Alaska", action:"All",dp1_reprints:"R4ConfirmProc@geico.com", underwriting:"uw4@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC114"},
     {abbr:"AZ", name:"Arizona", action:"All",dp1_reprints:"R10ConfirmProc@geico.com", underwriting:"uw10@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"You can reissue/restart for this state-- QC024"},
     {abbr:"AR", name:"Arkansas", action:"All",dp1_reprints:"R3ConfirmProc@geico.com", underwriting:"uw3@geico.com",move:"Please transfer to Sales",cancellation:"No special handling required",reissue:"Transfer to Reissue department-- QC113"},
@@ -245,6 +245,10 @@ function lookupState() {
             <div>
                 <span class="label">Reissues or Restarts:</span>
                 ${match.reissue}
+            </div>
+            <div>
+                <span class="label">DDC Age Requirement:</span>
+                ${match.DDC}
             </div>
         `;
 
